@@ -58,13 +58,77 @@
 			children = (
 				BF01F9BC29ED8DCE005D1AB8 /* AppDelegate.swift */,
 				BF01F9BE29ED8DCE005D1AB8 /* SceneDelegate.swift */,
-				BF01F9C029ED8DCE005D1AB8 /* ViewController.swift */,
-				BF01F9C229ED8DCE005D1AB8 /* Main.storyboard */,
-				BF01F9C529ED8DCE005D1AB8 /* Assets.xcassets */,
-				BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */,
-				BF01F9CA29ED8DCE005D1AB8 /* Info.plist */,
+				BF01F9D229ED8E38005D1AB8 /* Resource */,
+				BF01F9D129ED8E18005D1AB8 /* Source */,
+				BF01F9D029ED8DFA005D1AB8 /* Utility */,
 			);
 			path = MiniGameCollection;
+			sourceTree = "<group>";
+		};
+		BF01F9D029ED8DFA005D1AB8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BF01F9D129ED8E18005D1AB8 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BF01F9D729ED8EBA005D1AB8 /* Model */,
+				BF01F9D629ED8EB2005D1AB8 /* View */,
+				BF01F9D529ED8EA3005D1AB8 /* Controller */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		BF01F9D229ED8E38005D1AB8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BF01F9CA29ED8DCE005D1AB8 /* Info.plist */,
+				BF01F9D429ED8E5A005D1AB8 /* Assets */,
+				BF01F9D329ED8E48005D1AB8 /* Storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BF01F9D329ED8E48005D1AB8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BF01F9C229ED8DCE005D1AB8 /* Main.storyboard */,
+				BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BF01F9D429ED8E5A005D1AB8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BF01F9C529ED8DCE005D1AB8 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		BF01F9D529ED8EA3005D1AB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF01F9C029ED8DCE005D1AB8 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF01F9D629ED8EB2005D1AB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF01F9D729ED8EBA005D1AB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RKG4N9K9YM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MiniGameCollection/Info.plist;
+				INFOPLIST_FILE = MiniGameCollection/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +381,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RKG4N9K9YM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MiniGameCollection/Info.plist;
+				INFOPLIST_FILE = MiniGameCollection/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
