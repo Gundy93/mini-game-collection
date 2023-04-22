@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MiniGameListViewController.swift
 //  MiniGameCollection
 //
 //  Created by Gundy on 2023/04/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MiniGameListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

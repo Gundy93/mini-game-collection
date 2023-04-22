@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF01F9BD29ED8DCE005D1AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9BC29ED8DCE005D1AB8 /* AppDelegate.swift */; };
 		BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9BE29ED8DCE005D1AB8 /* SceneDelegate.swift */; };
-		BF01F9C129ED8DCE005D1AB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9C029ED8DCE005D1AB8 /* ViewController.swift */; };
-		BF01F9C429ED8DCE005D1AB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF01F9C229ED8DCE005D1AB8 /* Main.storyboard */; };
+		BF01F9C129ED8DCE005D1AB8 /* MiniGameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9C029ED8DCE005D1AB8 /* MiniGameListViewController.swift */; };
 		BF01F9C629ED8DCE005D1AB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF01F9C529ED8DCE005D1AB8 /* Assets.xcassets */; };
 		BF01F9C929ED8DCE005D1AB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */; };
 		BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9D829ED901C005D1AB8 /* Player.swift */; };
@@ -21,8 +20,7 @@
 		BF01F9B929ED8DCE005D1AB8 /* MiniGameCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGameCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF01F9BC29ED8DCE005D1AB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF01F9BE29ED8DCE005D1AB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF01F9C029ED8DCE005D1AB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF01F9C329ED8DCE005D1AB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF01F9C029ED8DCE005D1AB8 /* MiniGameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameListViewController.swift; sourceTree = "<group>"; };
 		BF01F9C529ED8DCE005D1AB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF01F9C829ED8DCE005D1AB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF01F9CA29ED8DCE005D1AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 		BF01F9D329ED8E48005D1AB8 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				BF01F9C229ED8DCE005D1AB8 /* Main.storyboard */,
 				BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
@@ -116,7 +113,7 @@
 		BF01F9D529ED8EA3005D1AB8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF01F9C029ED8DCE005D1AB8 /* ViewController.swift */,
+				BF01F9C029ED8DCE005D1AB8 /* MiniGameListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,7 +202,6 @@
 			files = (
 				BF01F9C929ED8DCE005D1AB8 /* LaunchScreen.storyboard in Resources */,
 				BF01F9C629ED8DCE005D1AB8 /* Assets.xcassets in Resources */,
-				BF01F9C429ED8DCE005D1AB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */,
-				BF01F9C129ED8DCE005D1AB8 /* ViewController.swift in Sources */,
+				BF01F9C129ED8DCE005D1AB8 /* MiniGameListViewController.swift in Sources */,
 				BF01F9DE29ED91BD005D1AB8 /* Playable.swift in Sources */,
 				BF01F9BD29ED8DCE005D1AB8 /* AppDelegate.swift in Sources */,
 				BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */,
@@ -227,14 +223,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BF01F9C229ED8DCE005D1AB8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF01F9C329ED8DCE005D1AB8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -372,7 +360,6 @@
 				INFOPLIST_FILE = MiniGameCollection/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,7 +387,6 @@
 				INFOPLIST_FILE = MiniGameCollection/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
