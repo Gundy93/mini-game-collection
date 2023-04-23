@@ -36,5 +36,4 @@ class MiniGameViewController: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = game.name
     }
-
 }
