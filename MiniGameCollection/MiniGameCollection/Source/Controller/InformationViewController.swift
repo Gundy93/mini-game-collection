@@ -39,14 +39,18 @@ class InformationViewController: UIViewController {
 
     private func configureNavigationBar() {
         let navigationItem = UINavigationItem(title: "게임 설명")
-        let dismissButton = UIBarButtonItem(systemItem: .done)
+        let dismissButton = UIBarButtonItem(systemItem: .done, primaryAction: makeDismissAction())
+
+        navigationItem.rightBarButtonItem = dismissButton
+        navigationBar.items?.append(navigationItem)
+    }
+
+    private func makeDismissAction() -> UIAction {
         let dismissAction = UIAction { [weak self] _ in
             self?.dismiss(animated: true)
         }
 
-        dismissButton.primaryAction = dismissAction
-        navigationItem.rightBarButtonItem = dismissButton
-        navigationBar.items?.append(navigationItem)
+        return dismissAction
     }
 
     private func convigureUI() {
@@ -71,7 +75,7 @@ class InformationViewController: UIViewController {
         ])
     }
 
-    func configureTextView(with text: String) {
+    func configureTextView(with text: String?) {
         descriptionTextView.text = text
     }
 }

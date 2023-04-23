@@ -25,15 +25,25 @@ class MiniGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configure()
-    }
-    
-
-    private func configure() {
         configureNavigationBar()
     }
 
     private func configureNavigationBar() {
+        let informationButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                                primaryAction: makePresentInformationAction())
+
         navigationItem.title = game.name
+        navigationItem.rightBarButtonItem = informationButton
+    }
+
+    private func makePresentInformationAction() -> UIAction {
+        let presentInformationAction = UIAction { [weak self] _ in
+            let informationViewController = InformationViewController()
+
+            informationViewController.configureTextView(with: self?.game.description)
+            self?.present(informationViewController, animated: true)
+        }
+
+        return presentInformationAction
     }
 }
