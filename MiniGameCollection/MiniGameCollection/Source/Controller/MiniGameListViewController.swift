@@ -9,7 +9,7 @@ import UIKit
 
 class MiniGameListViewController: UIViewController {
 
-    private var miniGames: [Playable] = []
+    private var miniGames: [Playable] = [NumberBaseball()]
     private var miniGamesCollectionView: UICollectionView = {
         let listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let listLayout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
@@ -30,6 +30,7 @@ class MiniGameListViewController: UIViewController {
 
     private func configure() {
         miniGamesCollectionView.dataSource = self
+        miniGamesCollectionView.delegate = self
         configureNavigationBar()
         configureUI()
     }
@@ -75,5 +76,13 @@ extension MiniGameListViewController: UICollectionViewDataSource {
         cell.accessories.append(.disclosureIndicator())
 
         return cell
+    }
+}
+
+extension MiniGameListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let miniGame = miniGames[indexPath.item]
+        let vc = MiniGameViewController(game: miniGame)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

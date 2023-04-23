@@ -70,8 +70,8 @@ class InformationViewController: UIViewController {
 
             descriptionTextView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 20),
             descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
-            descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20)
+            descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
     }
 
