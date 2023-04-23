@@ -16,8 +16,8 @@ class MiniGameListViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(miniGamesCollectionViewCell.self,
-                                forCellWithReuseIdentifier: miniGamesCollectionViewCell.identifiet)
+        collectionView.register(MiniGamesCollectionViewCell.self,
+                                forCellWithReuseIdentifier: MiniGamesCollectionViewCell.identifiet)
 
         return collectionView
     }()
@@ -63,7 +63,7 @@ extension MiniGameListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = miniGamesCollectionView.dequeueReusableCell(withReuseIdentifier: miniGamesCollectionViewCell.identifiet, for: indexPath)
+        let cell = miniGamesCollectionView.dequeueReusableCell(withReuseIdentifier: MiniGamesCollectionViewCell.identifiet, for: indexPath)
         guard let cell = cell as? UICollectionViewListCell else { return cell }
         var content = cell.defaultContentConfiguration()
         let item = miniGames[indexPath.item]

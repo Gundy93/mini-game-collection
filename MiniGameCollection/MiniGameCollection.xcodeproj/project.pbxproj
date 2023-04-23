@@ -14,7 +14,8 @@
 		BF01F9C929ED8DCE005D1AB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */; };
 		BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9D829ED901C005D1AB8 /* Player.swift */; };
 		BF01F9DE29ED91BD005D1AB8 /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9DD29ED91BD005D1AB8 /* Playable.swift */; };
-		BF34B66129F419B700974427 /* miniGamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B66029F419B700974427 /* miniGamesCollectionViewCell.swift */; };
+		BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */; };
+		BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		BF01F9CA29ED8DCE005D1AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF01F9D829ED901C005D1AB8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		BF01F9DD29ED91BD005D1AB8 /* Playable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
-		BF34B66029F419B700974427 /* miniGamesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniGamesCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGamesCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				BF01F9C029ED8DCE005D1AB8 /* MiniGameListViewController.swift */,
+				BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 		BF01F9D629ED8EB2005D1AB8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF34B66029F419B700974427 /* miniGamesCollectionViewCell.swift */,
+				BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,9 +221,10 @@
 				BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */,
 				BF01F9C129ED8DCE005D1AB8 /* MiniGameListViewController.swift in Sources */,
 				BF01F9DE29ED91BD005D1AB8 /* Playable.swift in Sources */,
+				BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */,
 				BF01F9BD29ED8DCE005D1AB8 /* AppDelegate.swift in Sources */,
 				BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */,
-				BF34B66129F419B700974427 /* miniGamesCollectionViewCell.swift in Sources */,
+				BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
