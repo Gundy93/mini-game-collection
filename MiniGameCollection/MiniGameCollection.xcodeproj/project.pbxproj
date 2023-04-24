@@ -18,6 +18,7 @@
 		BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */; };
 		BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EA029F53B54003BAA32 /* InformationViewController.swift */; };
 		BF626EA529F5498C003BAA32 /* NumberBaseball.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EA429F5498C003BAA32 /* NumberBaseball.swift */; };
+		BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EAE29F5579A003BAA32 /* UIStackView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		BF626EA029F53B54003BAA32 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = MiniGameCollection/Source/Controller/InformationViewController.swift; sourceTree = SOURCE_ROOT; };
 		BF626EA429F5498C003BAA32 /* NumberBaseball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBaseball.swift; sourceTree = "<group>"; };
+		BF626EAE29F5579A003BAA32 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		BF01F9D029ED8DFA005D1AB8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BF626EAD29F55782003BAA32 /* Extension */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -152,6 +155,14 @@
 				BF01F9DD29ED91BD005D1AB8 /* Playable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		BF626EAD29F55782003BAA32 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF626EAE29F5579A003BAA32 /* UIStackView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 				BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */,
 				BF01F9BD29ED8DCE005D1AB8 /* AppDelegate.swift in Sources */,
 				BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */,
+				BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */,
 				BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */,
 				BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */,
 			);
