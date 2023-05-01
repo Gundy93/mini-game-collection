@@ -19,6 +19,16 @@ final class NumberBaseballViewController: MiniGameViewController {
 
     private var logs = [String]()
 
+    private var inputedAnswer = [Int: Int]() {
+        didSet {
+            if inputedAnswer.values.count == 3 {
+                guessingButton?.isEnabled = true
+            } else {
+                guessingButton?.isEnabled = false
+            }
+        }
+    }
+
     private let containerStackView = UIStackView(axis: .vertical, spacing: 20, distribution: .fill)
 
     private let remainingCountLabel = UILabel(text: "잔여기회: 9", font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
@@ -56,6 +66,7 @@ final class NumberBaseballViewController: MiniGameViewController {
 
     private func configureUI() {
         configureLayout()
+        configureButtons()
     }
 
     private func configureLayout() {
@@ -80,6 +91,29 @@ final class NumberBaseballViewController: MiniGameViewController {
         ])
 
         remainingCountLabel.setContentHuggingPriority(.required, for: .vertical)
+    }
+
+    private func configureButtons() {
+        configureAnswerButtons()
+    }
+
+    private func configureAnswerButtons() {
+        for index in 0...2 {
+            let action = UIAction { [weak self] _ in
+                let button = self?.answerStackView.arrangedSubviews[index] as? UIButton
+
+                button?.setTitle("_", for: .normal)
+                self?.inputedAnswer[index] = nil
+            }
+            let button = UIButton(primaryAction: action)
+
+            button.setTitle("_", for: .normal)
+            button.titleLabel?.font = .preferredFont(forTextStyle: .largeTitle)
+            button.titleLabel?.textAlignment = .center
+            button.setTitleColor(.label, for: .normal)
+            button.setTitleColor(.systemGray4, for: .disabled)
+            answerStackView.addArrangedSubview(button)
+        }
     }
 }
 
