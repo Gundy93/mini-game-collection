@@ -9,6 +9,16 @@ import UIKit
 
 final class NumberBaseballViewController: MiniGameViewController {
 
+    private var goal: [Int]?
+
+    private var remainingCount = 9 {
+        didSet {
+            remainingCountLabel.text = "잔여기회: \(remainingCount)"
+        }
+    }
+
+    private var logs = [String]()
+
     private let containerStackView = UIStackView(axis: .vertical, spacing: 20, distribution: .fill)
 
     private let remainingCountLabel = UILabel(text: "잔여기회: 9", font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
@@ -28,7 +38,20 @@ final class NumberBaseballViewController: MiniGameViewController {
     }
 
     private func configure() {
+        configureInitialState()
         configureUI()
+    }
+
+    private func configureInitialState() {
+        goal = makeRandomNumbers(in: 0...9)
+        logTableView.dataSource = self
+        logTableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifiet)
+    }
+
+    private func makeRandomNumbers(in range: ClosedRange<Int>, count: Int = 3) -> [Int] {
+        let randomNumbers = range.shuffled()
+
+        return Array(randomNumbers[0..<count])
     }
 
     private func configureUI() {
@@ -57,5 +80,24 @@ final class NumberBaseballViewController: MiniGameViewController {
         ])
 
         remainingCountLabel.setContentHuggingPriority(.required, for: .vertical)
+    }
+}
+
+extension NumberBaseballViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return logs.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifiet) else { return TableViewCell() }
+        var content = cell.defaultContentConfiguration()
+        let log = logs[indexPath.item]
+
+        content.text = log
+        cell.contentConfiguration = content
+        cell.selectionStyle = .none
+
+        return cell
     }
 }
