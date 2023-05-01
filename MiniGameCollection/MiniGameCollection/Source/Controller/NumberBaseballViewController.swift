@@ -221,6 +221,99 @@ final class NumberBaseballViewController: MiniGameViewController {
         remainingCount = 9
         goal = makeRandomNumbers(in: 0...9)
     }
+
+    private func joinUserNumbers() -> [Int] {
+        var numbers = [Int]()
+
+        for place in 0...2 {
+            guard let number = inputedAnswer[place] else { return numbers }
+
+            numbers.append(number)
+        }
+
+        return numbers
+    }
+
+    private func compare(_ goal: [Int],and numbers: [Int]) -> (strike: Int, ball: Int) {
+        var strike = 0
+        var ball = 0
+
+        for index in 0...2 {
+            if numbers[index] == goal[index] {
+                strike += 1
+            } else if goal.contains(numbers[index]) {
+                ball += 1
+            }
+        }
+
+        return (strike, ball)
+    }
+
+    private func showResultAlert(_ strikeCount: Int, _ ballCount: Int) {
+        guard var message = makeResultMessage(strikeCount, ballCount) else { return }
+        let Judgment = judgeGame(strikeCount)
+        if Judgment.continuity == false,
+           let winner = Judgment.winner {
+            message += """
+                        Game Set!
+                       Winner: \(winner)
+                       """
+            isEnd = true
+        }
+
+        let completion: (UIAlertAction) -> Void = { [weak self] _ in
+            guard let remainingCount = self?.remainingCount,
+                  let triedNumbers = self?.joinUserNumbers() else { return }
+
+            self?.logs.append("\(10 - remainingCount)회차: \(triedNumbers) - " + message.split(separator: "!")[0])
+            self?.logTableView.reloadData()
+            self?.remainingCount -= 1
+            for index in 0...2 {
+                let button = self?.answerStackView.arrangedSubviews[index] as? UIButton
+
+                button?.setTitle("_", for: .normal)
+                self?.inputedAnswer[index] = nil
+            }
+            guard let contentHeight = self?.logTableView.contentSize.height,
+                  let boundsHeight = self?.logTableView.bounds.height,
+                  contentHeight > boundsHeight else { return }
+            self?.logTableView.layoutIfNeeded()
+            self?.logTableView.setContentOffset(CGPoint(x: 0, y: contentHeight - boundsHeight), animated: true)
+        }
+
+        showAlert(message: message, completion: completion)
+    }
+
+    private func makeResultMessage(_ strikeCount: Int, _ ballCount: Int) -> String? {
+        switch (strikeCount, ballCount) {
+        case (0, 0):
+            return "Out!"
+        case (_, 0):
+            return "\(strikeCount) Strike!"
+        case (0, _):
+            return "\(ballCount) Ball!"
+        default:
+            return nil
+        }
+    }
+
+    private func judgeGame(_ strikeCount: Int) -> (continuity: Bool, winner: Player?) {
+        if strikeCount == 3 {
+            return (false, .user)
+        }
+        if remainingCount == 1 {
+            return (false, .computer)
+        }
+        return (true, nil)
+    }
+
+    private func showAlert(title: String? = nil, message: String? = nil, completion: ((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let doneAction = UIAlertAction(title: "확인", style: .default, handler: completion)
+
+        alertController.addAction(doneAction)
+        present(alertController, animated: true)
+    }
 }
 
 extension NumberBaseballViewController: UITableViewDataSource {
