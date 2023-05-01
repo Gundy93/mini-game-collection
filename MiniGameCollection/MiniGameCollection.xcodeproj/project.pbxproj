@@ -20,6 +20,7 @@
 		BF626EA529F5498C003BAA32 /* NumberBaseball.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EA429F5498C003BAA32 /* NumberBaseball.swift */; };
 		BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EAE29F5579A003BAA32 /* UIStackView+.swift */; };
 		BF626EB329F6C087003BAA32 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EB229F6C087003BAA32 /* UILabel+.swift */; };
+		BF626EBB29FFF756003BAA32 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EBA29FFF756003BAA32 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		BF626EA429F5498C003BAA32 /* NumberBaseball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBaseball.swift; sourceTree = "<group>"; };
 		BF626EAE29F5579A003BAA32 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		BF626EB229F6C087003BAA32 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		BF626EBA29FFF756003BAA32 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */,
+				BF626EBA29FFF756003BAA32 /* TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				BF626EB329F6C087003BAA32 /* UILabel+.swift in Sources */,
 				BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */,
 				BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */,
+				BF626EBB29FFF756003BAA32 /* TableViewCell.swift in Sources */,
 				BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */,
 				BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */,
 			);
