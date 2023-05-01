@@ -119,6 +119,7 @@ final class NumberBaseballViewController: MiniGameViewController {
         configureAnswerButtons()
         configureNumberButtons()
         configureReplayButton()
+        configureGuessingButton()
     }
 
     private func configureAnswerButtons() {
@@ -220,6 +221,34 @@ final class NumberBaseballViewController: MiniGameViewController {
         logTableView.reloadData()
         remainingCount = 9
         goal = makeRandomNumbers(in: 0...9)
+    }
+
+    private func configureGuessingButton() {
+        let action = makeGuessingAction()
+        let button = UIButton(primaryAction: action)
+
+        button.isEnabled = false
+        button.setTitle("확인하기", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemGray, for: .disabled)
+        button.setContentHuggingPriority(.required, for: .vertical)
+        guessingButton = button
+        containerStackView.addArrangedSubview(button)
+    }
+
+    private func makeGuessingAction() -> UIAction {
+        let action = UIAction { [weak self] _ in
+            guard let userNumbers = self?.joinUserNumbers(),
+                  userNumbers.count == 3 else {
+                return
+            }
+            guard let goal = self?.goal,
+                  let comparedResult = self?.compare(goal, and: userNumbers) else { return }
+
+            self?.showResultAlert(comparedResult.strike, comparedResult.ball)
+        }
+        return action
     }
 
     private func joinUserNumbers() -> [Int] {
