@@ -95,6 +95,7 @@ final class NumberBaseballViewController: MiniGameViewController {
 
     private func configureButtons() {
         configureAnswerButtons()
+        configureNumberButtons()
     }
 
     private func configureAnswerButtons() {
@@ -114,6 +115,61 @@ final class NumberBaseballViewController: MiniGameViewController {
             button.setTitleColor(.systemGray4, for: .disabled)
             answerStackView.addArrangedSubview(button)
         }
+    }
+
+    private func configureNumberButtons() {
+        for section in 0...1 {
+            let stackView = UIStackView(axis: .horizontal, spacing: 8)
+
+            for index in 0...4 {
+                let number = section * 5 + index
+                let action = makeInputNumberAction(of: number)
+                let button = UIButton(primaryAction: action)
+
+                button.setTitle("\(number)", for: .normal)
+                button.titleLabel?.font = .preferredFont(forTextStyle: .title2)
+                button.setTitleColor(.label, for: .normal)
+                button.setTitleColor(.systemGray4, for: .disabled)
+                button.backgroundColor = .systemGray5
+                button.layer.cornerRadius = 20
+                stackView.addArrangedSubview(button)
+            }
+            containerStackView.addArrangedSubview(stackView)
+            stackView.heightAnchor.constraint(equalTo: answerStackView.heightAnchor, multiplier: 0.4).isActive = true
+        }
+    }
+
+    private func makeInputNumberAction(of number: Int) -> UIAction {
+        let action = UIAction { [weak self] _ in
+            var isExistNumber = true
+
+            for place in 0...2 {
+                if self?.inputedAnswer[place] == number {
+                    let button = self?.answerStackView.arrangedSubviews[place] as? UIButton
+
+                    button?.setTitle("_", for: .normal)
+                    isExistNumber = false
+                    self?.inputedAnswer[place] = nil
+                    break
+                }
+            }
+            if isExistNumber {
+                guard let values = self?.inputedAnswer.values,
+                      values.count < 3 else { return }
+
+                for place in 0...2 {
+                    if self?.inputedAnswer[place] == nil {
+                        let button = self?.answerStackView.arrangedSubviews[place] as? UIButton
+
+                        button?.setTitle("\(number)", for: .normal)
+                        self?.inputedAnswer[place] = number
+                        break
+                    }
+                }
+            }
+        }
+
+        return action
     }
 }
 
