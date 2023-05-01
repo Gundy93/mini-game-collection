@@ -45,7 +45,7 @@ class MiniGameViewController: UIViewController {
         let presentInformationAction = UIAction { [weak self] _ in
             let informationViewController = InformationViewController()
 
-            informationViewController.configureTextView(with: self?.game.description)
+            informationViewController.configureLabel(with: self?.game.description)
             self?.present(informationViewController, animated: true)
         }
 

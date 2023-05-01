@@ -82,9 +82,18 @@ extension MiniGameListViewController: UICollectionViewDataSource {
 extension MiniGameListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let miniGame = miniGames[indexPath.item]
-        let vc = MiniGameViewController(game: miniGame)
+        let miniGameViewController = makeMiniGameViewController(game: miniGame)
 
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(miniGameViewController, animated: true)
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+
+    func makeMiniGameViewController(game: Playable) -> MiniGameViewController {
+        switch game.name {
+        case "숫자 야구":
+            return NumberBaseballViewController(game: game)
+        default:
+            return MiniGameViewController(game: game)
+        }
     }
 }

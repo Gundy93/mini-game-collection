@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
+final class InformationViewController: UIViewController {
 
     private var navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar()
@@ -17,13 +17,22 @@ class InformationViewController: UIViewController {
         return navigationBar
     }()
 
-    private var descriptionTextView: UITextView = {
-        let textView = UITextView()
+    private var descriptionScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
 
-        textView.isEditable = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
 
-        return textView
+        return scrollView
+    }()
+
+    private var descriptionLabel: UILabel = {
+        let label = UILabel(font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
+
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
     }()
 
     override func viewDidLoad() {
@@ -59,23 +68,30 @@ class InformationViewController: UIViewController {
     }
 
     private func configureLayout() {
-        let subviews = [navigationBar, descriptionTextView]
+        let subviews = [navigationBar, descriptionScrollView]
+
         subviews.forEach {
             view.addSubview($0)
         }
+        descriptionScrollView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
             navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            descriptionTextView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 20),
-            descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            descriptionScrollView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 20),
+            descriptionScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            descriptionScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionScrollView.contentLayoutGuide.topAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: descriptionScrollView.contentLayoutGuide.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: descriptionScrollView.frameLayoutGuide.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: descriptionScrollView.frameLayoutGuide.trailingAnchor),
         ])
     }
 
-    func configureTextView(with text: String?) {
-        descriptionTextView.text = text
+    func configureLabel(with text: String?) {
+        descriptionLabel.text = text
     }
 }

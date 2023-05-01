@@ -9,11 +9,12 @@ import UIKit
 
 extension UILabel {
 
-    convenience init(text: String? = nil, color: UIColor = .label, font: UIFont = .preferredFont(forTextStyle: .body)) {
+    convenience init(text: String? = nil, color: UIColor = .label, font: UIFont = .preferredFont(forTextStyle: .body), textAlignment: NSTextAlignment = .left) {
         self.init()
 
         self.text = text
         self.textColor = color
         self.font = font
+        self.textAlignment = textAlignment
     }
 }
