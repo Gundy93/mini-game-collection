@@ -29,6 +29,28 @@ final class NumberBaseballViewController: MiniGameViewController {
         }
     }
 
+    private var isEnd: Bool = false {
+        didSet {
+            if isEnd {
+                guessingButton?.isHidden = true
+                replayButton?.isHidden = false
+                containerStackView.arrangedSubviews.compactMap({ $0 as? UIStackView }).forEach { stackView in
+                    stackView.arrangedSubviews.compactMap({ $0 as? UIButton }).forEach { button in
+                        button.isEnabled = false
+                    }
+                }
+            } else {
+                guessingButton?.isHidden = false
+                replayButton?.isHidden = true
+                containerStackView.arrangedSubviews.compactMap({ $0 as? UIStackView }).forEach { stackView in
+                    stackView.arrangedSubviews.compactMap({ $0 as? UIButton }).forEach { button in
+                        button.isEnabled = true
+                    }
+                }
+            }
+        }
+    }
+
     private let containerStackView = UIStackView(axis: .vertical, spacing: 20, distribution: .fill)
 
     private let remainingCountLabel = UILabel(text: "잔여기회: 9", font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
@@ -96,6 +118,7 @@ final class NumberBaseballViewController: MiniGameViewController {
     private func configureButtons() {
         configureAnswerButtons()
         configureNumberButtons()
+        configureReplayButton()
     }
 
     private func configureAnswerButtons() {
@@ -170,6 +193,33 @@ final class NumberBaseballViewController: MiniGameViewController {
         }
 
         return action
+    }
+
+    private func configureReplayButton() {
+        let action = makeReplayAction()
+        let button = UIButton(primaryAction: action)
+
+        button.isHidden = true
+        button.setTitle("다시하기", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
+        button.setContentHuggingPriority(.required, for: .vertical)
+        replayButton = button
+        containerStackView.addArrangedSubview(button)
+    }
+
+    private func makeReplayAction() -> UIAction {
+        let action = UIAction { [weak self] _ in
+            self?.resetGame()
+        }
+        return action
+    }
+
+    private func resetGame() {
+        isEnd = false
+        logs = []
+        logTableView.reloadData()
+        remainingCount = 9
+        goal = makeRandomNumbers(in: 0...9)
     }
 }
 
