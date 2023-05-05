@@ -14,6 +14,7 @@
 		BF01F9C929ED8DCE005D1AB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF01F9C729ED8DCE005D1AB8 /* LaunchScreen.storyboard */; };
 		BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9D829ED901C005D1AB8 /* Player.swift */; };
 		BF01F9DE29ED91BD005D1AB8 /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF01F9DD29ED91BD005D1AB8 /* Playable.swift */; };
+		BF1F7FA42A04DD09006F3400 /* RockSissorsPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FA32A04DD09006F3400 /* RockSissorsPaper.swift */; };
 		BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */; };
 		BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */; };
 		BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EA029F53B54003BAA32 /* InformationViewController.swift */; };
@@ -34,6 +35,7 @@
 		BF01F9CA29ED8DCE005D1AB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF01F9D829ED901C005D1AB8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		BF01F9DD29ED91BD005D1AB8 /* Playable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
+		BF1F7FA32A04DD09006F3400 /* RockSissorsPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockSissorsPaper.swift; sourceTree = "<group>"; };
 		BF34B66029F419B700974427 /* MiniGamesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGamesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		BF626EA029F53B54003BAA32 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = MiniGameCollection/Source/Controller/InformationViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -153,6 +155,7 @@
 				BF01F9DC29ED91AA005D1AB8 /* Protocol */,
 				BF01F9D829ED901C005D1AB8 /* Player.swift */,
 				BF626EA429F5498C003BAA32 /* NumberBaseball.swift */,
+				BF1F7FA32A04DD09006F3400 /* RockSissorsPaper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */,
 				BF626EBB29FFF756003BAA32 /* TableViewCell.swift in Sources */,
 				BF34B66129F419B700974427 /* MiniGamesCollectionViewCell.swift in Sources */,
+				BF1F7FA42A04DD09006F3400 /* RockSissorsPaper.swift in Sources */,
 				BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

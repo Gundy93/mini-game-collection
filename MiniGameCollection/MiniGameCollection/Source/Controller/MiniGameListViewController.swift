@@ -9,7 +9,7 @@ import UIKit
 
 class MiniGameListViewController: UIViewController {
 
-    private var miniGames: [Playable] = [NumberBaseball()]
+    private var miniGames: [Playable] = [NumberBaseball(), RockSissorsPaper()]
     private var miniGamesCollectionView: UICollectionView = {
         let listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let listLayout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
