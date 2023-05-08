@@ -29,3 +29,24 @@ struct RockSissorsPaper: Playable {
                               서로 다른 선택지를 냈을 경우 가위바위보 규칙을 기준으로 이기는 사람이 공격권을 갖습니다.
                               """
 }
+
+extension RockSissorsPaper {
+
+    enum HandShape: CustomStringConvertible {
+
+        case rock
+        case sissors
+        case paper
+
+        var description: String {
+            switch self {
+            case .rock:
+                return "✊"
+            case .sissors:
+                return "✌️"
+            case .paper:
+                return "🖐️"
+            }
+        }
+    }
+}

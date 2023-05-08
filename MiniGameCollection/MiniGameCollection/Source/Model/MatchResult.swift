@@ -6,6 +6,7 @@
 //
 
 enum MatchResult {
+
     case win
     case draw
     case lose
