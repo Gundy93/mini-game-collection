@@ -32,7 +32,7 @@ struct RockSissorsPaper: Playable {
 
 extension RockSissorsPaper {
 
-    enum HandShape: CustomStringConvertible {
+    enum HandShape: Int, CustomStringConvertible {
 
         case rock
         case sissors

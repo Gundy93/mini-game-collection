@@ -11,7 +11,15 @@ final class RockSissorsPaperViewController: MiniGameViewController {
 
     private typealias Cell = RockSissorsPaperCollectionViewCell
 
-    let handShapes = ["✊", "✌️", "🖐️"]
+    let containerStackView = UIStackView(axis: .vertical,
+                                         alignment: .center,
+                                         distribution: .equalSpacing)
+    let computerLabel = UILabel(text: "Computer",
+                                font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
+    let computerHandView = UIView()
+    let computerHandLabel = UILabel(text: "❔",
+                                    font: .preferredFont(forTextStyle: .largeTitle),
+                                    textAlignment: .center)
     let carouselCollectionView: UICollectionView = {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.scrollDirection = .vertical
@@ -41,8 +49,19 @@ final class RockSissorsPaperViewController: MiniGameViewController {
 
         return collectionView
     }()
+    let userLabel = UILabel(text: "User",
+                            font: .preferredFont(forTextStyle: .headline), textAlignment: .center)
+    let lockInButton: UIButton = {
+        let button = UIButton(primaryAction: nil)
+
+        button.setTitle("가위바위보", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        button.tintColor = .systemCyan
+
+        return button
+    }()
     var didScrollToMiddleItem = false
-    var willDisplaying = 3
+    var willDisplaying = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +72,7 @@ final class RockSissorsPaperViewController: MiniGameViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        carouselCollectionView.scrollToItem(at: IndexPath(item: 1,
+        carouselCollectionView.scrollToItem(at: IndexPath(item: 3,
                                                           section: 0),
                                             at: .centeredHorizontally,
                                             animated: false)
@@ -67,6 +86,9 @@ final class RockSissorsPaperViewController: MiniGameViewController {
     }
 
     private func configureUI() {
+        computerHandLabel.backgroundColor = .systemCyan
+        computerHandLabel.layer.cornerRadius = 20
+        computerHandLabel.clipsToBounds = true
         configureLayout()
     }
 
@@ -76,17 +98,35 @@ final class RockSissorsPaperViewController: MiniGameViewController {
         let leftArrowImageView = UIImageView(image: UIImage(systemName: "arrowtriangle.left.fill"), tintColor: UIColor.systemCyan)
         let rightArrowImageView = UIImageView(image: UIImage(systemName: "arrowtriangle.right.fill"), tintColor: UIColor.systemCyan)
 
-        view.addSubview(carouselStackView)
         [leftArrowImageView, carouselCollectionView, rightArrowImageView].forEach { subview in
             carouselStackView.addArrangedSubview(subview)
         }
-        carouselStackView.translatesAutoresizingMaskIntoConstraints = false
+        [leftArrowImageView, rightArrowImageView].forEach { imageView in
+            imageView.contentMode = .scaleAspectFit
+            imageView.setContentHuggingPriority(.required, for: .horizontal)
+        }
+        computerHandView.addSubview(computerHandLabel)
+        [computerLabel, computerHandView, carouselStackView, userLabel, lockInButton].forEach { subview in
+            containerStackView.addArrangedSubview(subview)
+        }
+        view.addSubview(containerStackView)
+        containerStackView.translatesAutoresizingMaskIntoConstraints = false
+        computerHandLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            carouselStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 20),
-            carouselStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            carouselStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
-            carouselStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -20),
+            containerStackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            containerStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            containerStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            containerStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            computerHandView.heightAnchor.constraint(equalTo: carouselStackView.heightAnchor),
+            computerHandView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.4),
+            computerHandView.widthAnchor.constraint(equalTo: carouselCollectionView.widthAnchor),
+            computerHandLabel.topAnchor.constraint(equalTo: computerHandView.topAnchor, constant: 20),
+            computerHandLabel.leadingAnchor.constraint(equalTo: computerHandView.leadingAnchor, constant: 20),
+            computerHandLabel.trailingAnchor.constraint(equalTo: computerHandView.trailingAnchor, constant: -20),
+            computerHandLabel.bottomAnchor.constraint(equalTo: computerHandView.bottomAnchor, constant: -20),
+            carouselStackView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 20),
+            carouselStackView.trailingAnchor.constraint(equalTo: containerStackView.trailingAnchor, constant: -20),
             carouselCollectionView.heightAnchor.constraint(equalTo: carouselStackView.heightAnchor)
         ])
     }
@@ -95,17 +135,17 @@ final class RockSissorsPaperViewController: MiniGameViewController {
 extension RockSissorsPaperViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return handShapes.count + 2
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let handShape = handShapes[indexPath.item % 3]
-        guard let cell = carouselCollectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifiet,
+        guard let handShape = RockSissorsPaper.HandShape(rawValue: indexPath.item % 3),
+              let cell = carouselCollectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifiet,
                                                                     for: indexPath) as? Cell else {
             return Cell()
         }
 
-        cell.configure(with: handShape)
+        cell.configure(with: "\(handShape)")
 
         return cell
     }
