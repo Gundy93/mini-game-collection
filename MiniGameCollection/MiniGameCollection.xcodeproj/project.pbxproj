@@ -17,6 +17,8 @@
 		BF1F7FA42A04DD09006F3400 /* RockSissorsPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FA32A04DD09006F3400 /* RockSissorsPaper.swift */; };
 		BF1F7FAA2A0921E5006F3400 /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FA92A0921E5006F3400 /* MatchResult.swift */; };
 		BF1F7FAE2A092FAA006F3400 /* RockSissorsPaperCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FAD2A092FAA006F3400 /* RockSissorsPaperCollectionViewCell.swift */; };
+		BF1F7FB02A0933E5006F3400 /* RockSissorsPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FAF2A0933E5006F3400 /* RockSissorsPaperViewController.swift */; };
+		BF1F7FB22A10CEE2006F3400 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F7FB12A10CEE2006F3400 /* UIImageView+.swift */; };
 		BF34B66129F419B700974427 /* CollectionViewListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B66029F419B700974427 /* CollectionViewListCell.swift */; };
 		BF626E9F29F53779003BAA32 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */; };
 		BF626EA129F53B54003BAA32 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF626EA029F53B54003BAA32 /* InformationViewController.swift */; };
@@ -40,6 +42,8 @@
 		BF1F7FA32A04DD09006F3400 /* RockSissorsPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockSissorsPaper.swift; sourceTree = "<group>"; };
 		BF1F7FA92A0921E5006F3400 /* MatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResult.swift; sourceTree = "<group>"; };
 		BF1F7FAD2A092FAA006F3400 /* RockSissorsPaperCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockSissorsPaperCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF1F7FAF2A0933E5006F3400 /* RockSissorsPaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockSissorsPaperViewController.swift; sourceTree = "<group>"; };
+		BF1F7FB12A10CEE2006F3400 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		BF34B66029F419B700974427 /* CollectionViewListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewListCell.swift; sourceTree = "<group>"; };
 		BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		BF626EA029F53B54003BAA32 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = MiniGameCollection/Source/Controller/InformationViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -140,6 +144,7 @@
 				BF626E9E29F53779003BAA32 /* MiniGameViewController.swift */,
 				BF626EA029F53B54003BAA32 /* InformationViewController.swift */,
 				BF626EBC29FFF7B6003BAA32 /* NumberBaseballViewController.swift */,
+				BF1F7FAF2A0933E5006F3400 /* RockSissorsPaperViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			children = (
 				BF626EAE29F5579A003BAA32 /* UIStackView+.swift */,
 				BF626EB229F6C087003BAA32 /* UILabel+.swift */,
+				BF1F7FB12A10CEE2006F3400 /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1F7FB22A10CEE2006F3400 /* UIImageView+.swift in Sources */,
 				BF01F9D929ED901C005D1AB8 /* Player.swift in Sources */,
 				BF01F9C129ED8DCE005D1AB8 /* MiniGameListViewController.swift in Sources */,
 				BF01F9DE29ED91BD005D1AB8 /* Playable.swift in Sources */,
@@ -262,6 +269,7 @@
 				BF626EB329F6C087003BAA32 /* UILabel+.swift in Sources */,
 				BF01F9BF29ED8DCE005D1AB8 /* SceneDelegate.swift in Sources */,
 				BF1F7FAA2A0921E5006F3400 /* MatchResult.swift in Sources */,
+				BF1F7FB02A0933E5006F3400 /* RockSissorsPaperViewController.swift in Sources */,
 				BF626EBD29FFF7B6003BAA32 /* NumberBaseballViewController.swift in Sources */,
 				BF1F7FAE2A092FAA006F3400 /* RockSissorsPaperCollectionViewCell.swift in Sources */,
 				BF626EAF29F5579A003BAA32 /* UIStackView+.swift in Sources */,

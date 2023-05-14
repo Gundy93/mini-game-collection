@@ -7,7 +7,7 @@
 
 struct RockSissorsPaper: Playable {
 
-    let name: String = "가위바위보"
+    let name: String = "묵찌빠"
     let imageName: String = "hand.wave"
     let description: String = """
                               사용자는 가위, 바위, 보 중에 한 가지를 선택하고, 컴퓨터의 선택과 비교해 승자를 가려내는 게임입니다.

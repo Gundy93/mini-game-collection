@@ -11,7 +11,8 @@ final class RockSissorsPaperCollectionViewCell: UICollectionViewCell {
 
     static let identifiet: String = String(describing: RockSissorsPaperCollectionViewCell.self)
 
-    private let handShapeLabel = UILabel(font: .preferredFont(forTextStyle: .title1), textAlignment: .center)
+    private let handShapeLabel = UILabel(font: .preferredFont(forTextStyle: .largeTitle),
+                                         textAlignment: .center)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,22 +25,25 @@ final class RockSissorsPaperCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configure() {
-        backgroundColor = .systemGray6
-        configureViewHierarchy()
+    func configure(with handShape: String) {
+        handShapeLabel.backgroundColor = .systemCyan
+        handShapeLabel.layer.cornerRadius = 20
+        handShapeLabel.layer.masksToBounds = true
+        configureLabel(with: handShape)
     }
 
     private func configureViewHierarchy() {
-        contentView.addSubview(handShapeLabel)
+        addSubview(handShapeLabel)
+        handShapeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            handShapeLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            handShapeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            handShapeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            handShapeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            handShapeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            handShapeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            handShapeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            handShapeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
     }
 
-    func configureLabel(with handShape: String) {
+    private func configureLabel(with handShape: String) {
         handShapeLabel.text = handShape
     }
 }
